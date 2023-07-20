@@ -6,7 +6,7 @@ const MakananSchema = new mongoose.Schema({
         required: true,
         min: 5
     },
-    deskripsi:{
+    des:{
         type: String,
         required: true,
         min: 10

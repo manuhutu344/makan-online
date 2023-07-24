@@ -8,7 +8,7 @@ function Hero() {
     <div className={classes.container}>
     <div className={classes.wrapper}>
     <div className={classes.left}>
-    <h2>Apa Yang Lebih Baik Daripada Makan Bersama<br />Orang Yang Anda Cintai</h2>
+    <h2>Perut Kenyang<br />Buat Bahagia</h2>
     <h5>Kami Dapat Membantu Anda Dengan Pengalaman Dengan Memberikan Anda<br />Dengan Makanan Luar Biasa Makanan Berat, Makanan Ringan, Minuman,<br />Semua Bisa Anda Dapatkan Disini</h5>
     <div className={classes.buttons}>
     <button className={classes.orderNow}>

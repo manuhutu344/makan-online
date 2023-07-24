@@ -1,7 +1,7 @@
 import React from 'react'
-import catalog from './catalog.css'
+import classes from './catalog.module.css'
 
-function Catalog() {
+function Catalog({meals = []}) {
   return (
     <div>Catalog</div>
   )

@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({meals}) {
   return (
     <>
       <Head>
@@ -19,14 +19,14 @@ export default function Home() {
      <div>
      <Navbar />
      <Hero />
-     <Catalog />
+     <Catalog meals={meals} />
      </div>
     </>
   )
 }
 
 export async function getServerSideProps(){
-  const {data} = await axios.get('http://localhost:300/api/meal')
+  const {data} = await axios.get('http://localhost:3000/api/meal')
   return{
     props:{
       meals: data

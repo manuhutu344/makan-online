@@ -4,6 +4,7 @@ import Navbar from '../../components/navbar/Navbar'
 import Hero from '../../components/hero/Hero'
 import Catalog from '../../components/catalog/Catalog'
 import axios from 'axios'
+import Bawah from '../../components/footer/Bawah'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function Home({meals}) {
      <Navbar />
      <Hero />
      <Catalog meals={meals} />
+     <Bawah />
      </div>
     </>
   )

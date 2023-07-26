@@ -3,6 +3,7 @@ import classes from './catalog.module.css'
 import Link from 'next/link'
 
 function Catalog({meals = []}) {
+  console.log(meals)
   const [activeCategory, setActiveCategory] = useState('Semua')
   const [fillteredMeals, setFillteredMeals] = useState([])
   useEffect(()=>{
@@ -42,7 +43,7 @@ function Catalog({meals = []}) {
     {
       fillteredMeals?.length > 0
       ? <div className={classes.meals}>
-      {fillterMeals?.map((meal)=>{
+      {fillteredMeals?.map((meal)=>{
         <Link href={`/meal/${meal?._id}`} key={meal?._id} className={classes.meal}>
         <div className={classes.imgContainer}>
         <Image src={meal?.image} width='250' height='250' />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import classes from './catalog.module.css'
+import Image from 'next/image'
 import Link from 'next/link'
 
 function Catalog({meals = []}) {
@@ -27,7 +28,7 @@ function Catalog({meals = []}) {
     <h2>Makanan Dan Kategori</h2>
     </div>
     <div className={classes.categories}>
-    <span onClick={()=>setActiveCategory('Semua Makanan')} className={`${classes.category} ${activeCategory === 'Semua' ? classes.active : ''}`}>
+    <span onClick={()=>setActiveCategory('Semua')} className={`${classes.category} ${activeCategory === 'Semua' ? classes.active : ''}`}>
     Semua
     </span>
     <span onClick={()=>setActiveCategory('Makanan Berat')} className={`${classes.category} ${activeCategory === 'Makanan Berat' ? classes.active : ''}`}>

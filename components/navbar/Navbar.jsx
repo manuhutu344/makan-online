@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './navbar.module.css'
 import {AiOutlineMail} from 'react-icons/ai'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 
 function Navbar() {
   return (
@@ -18,7 +19,7 @@ function Navbar() {
     </ul>
     <div className={classes.right}>
     <AiOutlineMail size={30} />
-    <button className={classes.signIn}>Sign In</button>
+    <button onClick={() => signIn()} className={classes.signIn}>Sign In</button>
     </div>
     </div>
     </div>

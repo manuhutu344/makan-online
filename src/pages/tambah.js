@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Bawah from '../../components/footer/Bawah'
 import classes from '../styles/tambah.module.css'
 import { AiOutlineFileImage } from 'react-icons/ai'
+import { useRouter } from 'next/router'
+import { signIn, useSession } from 'next-auth/react'
 
 function tambah() {
+  const [title, setTitle] = useState('')
+  const [desc, setDesc] = useState('')
+  const [category, setCategory] = useState('Makanan Berat')
+  const [price, setPrice] = useState(50)
+  const [photo, setPhoto] = useState('')
+  const router = useRouter()
+  const session = useSession()
+
+  useEffect(()=>{
+    if(session.status === 'loading') return
+    if(session.status !== 'authenticated'){
+      signIn()
+    }
+  }, [session.status])
+
   const handleSubmit = async (e) =>{
     e.preventDefault()
   }

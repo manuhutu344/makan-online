@@ -3,6 +3,7 @@ import classes from '../styles/login.module.css'
 import Navbar from '../../components/navbar/Navbar'
 import Bawah from '../../components/footer/Bawah'
 import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/router'
 import {signIn} from 'next-auth/react'
 
@@ -19,9 +20,6 @@ function login() {
                 redirect: false
             })
             if(res?.error == null){
-                setTimeout(()=>{
-                    toast.success("Kamu Berhasil Masuk")
-                },500)
                 router.push("/")
             }
         } catch (error) {

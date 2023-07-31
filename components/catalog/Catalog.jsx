@@ -14,7 +14,7 @@ function Catalog({meals = []}) {
           if(activeCategory === 'Semua'){
             return meals
           }
-          return [...meals].filter((meal)=>meal.kategori === activeCategory)
+          return [...meals].filter((meal)=>meal.category === activeCategory)
         }
       })
     }
@@ -44,19 +44,17 @@ function Catalog({meals = []}) {
     {
       fillteredMeals?.length > 0
       ? <div className={classes.meals}>
-      {fillteredMeals?.map((meal)=>{
+      {fillteredMeals?.map((meal)=>(
         <Link href={`/meal/${meal?._id}`} key={meal?._id} className={classes.meal}>
         <div className={classes.imgContainer}>
         <Image src={meal?.image} width='250' height='250' />
         </div>
         <div className={classes.mealData}>
-        <h4>{meal?.judul}</h4>
-        <span>
-        ${meal?.harga}
-        </span>
+        <h4>{meal?.title}</h4>
+        <span>Rp{meal?.price}</span>
         </div>
         </Link>
-      })}
+      ))}
       </div>
       : <h2 className={classes.noMeal}>Tidak Ada {activeCategory} Yang Tersedia</h2>
     }

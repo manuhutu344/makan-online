@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 
 const MakananSchema = new mongoose.Schema({
-    judul:{
+    title:{
         type: String,
         required: true,
         min: 5
     },
-    des:{
+    desc:{
         type: String,
         required: true,
         min: 10
     },
-    kategori:{
+    category:{
         type: String,
         enum: ['Makanan Berat', 'Makanan Ringan', 'Minuman'],
         required: true
     },
-    harga:{
+    price:{
         type: Number,
         required: true
     },
@@ -24,7 +24,7 @@ const MakananSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    unggulan:{
+    featured:{
         type: Boolean,
         default: false
     }

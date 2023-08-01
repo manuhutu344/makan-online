@@ -1,0 +1,44 @@
+.container{
+    margin-top: 3.75rem;
+    height: calc(100vh - 60px);
+    width: 100%;
+}
+
+.wrapper{
+    height: 75%;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    gap: 10rem;
+}
+
+.left{
+    height: 700px;
+    width: 800px;
+}
+
+.left > img{
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    margin-bottom: 3.75rem;
+    text-transform: capitalize;
+    font-size: 36px;
+    color: #e2a024;
+    margin-left: -0.5rem;
+}
+
+.category{
+    font-size: 22px;
+    color: #f68613;
+    margin-bottom: 5rem;
+    font-weight: bold;
+}

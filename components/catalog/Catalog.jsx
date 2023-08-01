@@ -45,7 +45,7 @@ function Catalog({meals = []}) {
       fillteredMeals?.length > 0
       ? <div className={classes.meals}>
       {fillteredMeals?.map((meal)=>(
-        <Link href={`/meal/${meal?._id}`} key={meal?._id} className={classes.meal}>
+        <Link href={`/makanan/${meal?._id}`} key={meal?._id} className={classes.meal}>
         <div className={classes.imgContainer}>
         <Image src={meal?.image} width='250' height='250' />
         </div>

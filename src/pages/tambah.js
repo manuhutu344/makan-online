@@ -59,7 +59,7 @@ function tambah() {
         price,
         image: imageUrl
       })
-      router.push(`/meal/${data?._id}`)
+      router.push(`/makanan/${data?._id}`)
     } catch (error) {
       console.error(error)
     }

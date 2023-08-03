@@ -1,12 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import classes from './catalog.module.css'
 import Image from 'next/image'
+import axios from 'axios'
 import Link from 'next/link'
+import {FcFullTrash} from 'react-icons/fc'
+import { useSession } from 'next-auth/react'
 
 function Catalog({meals = []}) {
   console.log(meals)
   const [activeCategory, setActiveCategory] = useState('Semua')
+  const session = useSession()
   const [fillteredMeals, setFillteredMeals] = useState([])
+  const loadData = async() =>{
+    const response = await axios.get("http://localhost:3000/api/meal")
+    setFillteredMeals(response.data)
+}
+useEffect(()=>{
+  loadData()
+},[])
+  function hapusdata(id){
+    if(window.confirm('Apakah Anda Yakin Inggin Menghapus Data Ini ?')){
+      axios.delete(`http://localhost:3000/api/meal/${id}`)
+      setTimeout(() => loadData(), 500)
+  }
+  }
   useEffect(()=>{
     const fillterMeals = () => {
       setFillteredMeals(() =>{
@@ -55,6 +72,21 @@ function Catalog({meals = []}) {
         </div>
         </Link>
       ))}
+      {session.status !== 'authenticated'
+      ?(
+        <>
+
+        </>
+      )
+      :
+      <>
+      {meals?.map((item)=>(
+        <button className={classes.tombol} onClick={() => hapusdata(item?._id)}>
+      <FcFullTrash size={20} />
+      </button>
+      ))}
+      </>
+    }
       </div>
       : <h2 className={classes.noMeal}>Tidak Ada {activeCategory} Yang Tersedia</h2>
     }

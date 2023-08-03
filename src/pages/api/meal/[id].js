@@ -8,5 +8,10 @@ export default async function handler(req, res){
             const meal = await Makanan.findById(req.query.id)
             return res.status(200).json(meal)
         }
+
+        case "DELETE":{
+            const meal = await Makanan.findByIdAndDelete(req.query.id)
+            return res.status(200).json(meal)
+        }
     }
 }

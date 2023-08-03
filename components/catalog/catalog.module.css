@@ -108,3 +108,11 @@
     display: inline-block;
     margin-left: 0.25rem;
 }
+
+.tombol{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 18px;
+    cursor: pointer;
+}

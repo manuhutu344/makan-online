@@ -1,3 +1,4 @@
+import { unstable_batchedUpdates } from "react-dom";
 import Makanan from "../../../../models/Makanan";
 import db from "../../../../utils/db";
 

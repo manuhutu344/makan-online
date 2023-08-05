@@ -12,11 +12,5 @@ export default async function handler(req, res){
             const meal = await Makanan.create({...req.body})
             return res.status(201).json(meal)
         }
-        case "PUT":{
-            const id = req.params
-            const {title, desc, category, price, image, featured} = req.body
-            const makan = await Makanan.findByIdAndUpdate(id, {title, desc, category, price, image, featured})
-            return res.status(200).json(makan)
-        }
     }
 }

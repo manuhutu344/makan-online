@@ -24,7 +24,7 @@ function MealDetails({meal}) {
     <div className={classes.right}>
     <h2 className={classes.title}>{meal?.title}</h2>
     <span className={classes.category}>Kategori: <span>{meal?.category}</span></span>
-    <p className={classes.desc}>Deskripsi Makanan: {meal?.desc?.length > 70 ? `${meal?.desc.slice(0, 70)}...}` : meal.desc}</p>
+    <p className={classes.desc}>Deskripsi Makanan: <span>{meal?.desc?.length > 70 ? `${meal?.desc.slice(0, 70)}...}` : meal.desc}</span></p>
     <span className={classes.price}>Harga: Rp<span>{meal?.price}</span></span>
     <button onClick={()=>setShowFrom(true)} className={classes.orderButton}>Order Sekarang</button>
     <span className={classes.readyIn}>Makanan Akan Siap Dalam 30 Atau 45 Menit</span>

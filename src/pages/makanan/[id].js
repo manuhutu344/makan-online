@@ -5,13 +5,25 @@ import classes from '../../styles/meal.module.css'
 import Image from 'next/image'
 import axios from 'axios'
 import { AiOutlineClose } from 'react-icons/ai'
+import emailjs from '@emailjs/browser'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function MealDetails({meal}) {
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
     const [showForm, setShowFrom] = useState(false)
     const formRef = useRef()
     const handleCloseForm = () => setShowFrom(false)
-    const handleEmail = () =>{
-
+    const handleEmail = (e) =>{
+        e.preventDefault()
+        emailjs.sendForm("service_xyrlg23", "template_th6o139", formRef.current, "n_cFrM_uuvBjZ_-8V")
+        .then(()=>{
+            toast.success('Email Sudah Terkirim Ke Email Anda' + email)
+            handleCloseForm()
+        }, (err)=>{
+            toast.error(err.text)
+        })
     }
   return (
     <>
@@ -36,9 +48,8 @@ function MealDetails({meal}) {
             <div className={classes.contactFormWrapper} onClick={(e)=>e.stopPropagation()}>
             <h2>Order Makanan</h2>
             <form onSubmit={handleEmail} ref={formRef}>
-            <input type='text' placeholder='Username' name='from_username' />
-            <input type='email' placeholder='Email' name='to_email' />
-            <textarea type='text' placeholder='Alamat' name='message'/>
+            <input type='email' placeholder='Email' name='to_email' onChange={(e)=>setEmail(e.target.value)} />
+            <textarea type='text' placeholder='Alamat' name='message' onChange={(e)=>setMessage(e.target.value)} />
             <button>Kirim</button>
             </form>
             <AiOutlineClose onClick={handleCloseForm} className={classes.removeIcon}/>
@@ -46,6 +57,7 @@ function MealDetails({meal}) {
             </div>
         )
     }
+    <ToastContainer />
     </div>
     <Bawah />
     </>

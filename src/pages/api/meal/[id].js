@@ -1,4 +1,3 @@
-import { unstable_batchedUpdates } from "react-dom";
 import Makanan from "../../../../models/Makanan";
 import db from "../../../../utils/db";
 
@@ -13,6 +12,12 @@ export default async function handler(req, res){
         case "DELETE":{
             const meal = await Makanan.findByIdAndDelete(req.query.id)
             return res.status(200).json(meal)
+        }
+        case "PUT":{
+            const {id} = req.query
+            const formData = req.body
+            await Makanan.findByIdAndUpdate(id, formData)
+            return res.status(200).json(formData)
         }
     }
 }
